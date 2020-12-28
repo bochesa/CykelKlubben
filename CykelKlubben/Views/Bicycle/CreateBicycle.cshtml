@@ -1,0 +1,47 @@
+﻿
+@model Bicycle
+
+<div class="container">
+    <!-- Form for creating new bikes -->
+    <form id="bicycle-form" asp-action="CreateBicycle" asp-controller="Bicycle" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-6">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Model"></label>
+                    <input asp-for="Model" class="form-control" />
+                    <span asp-validation-for="Model" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NumberOfGears"></label>
+                    <input asp-for="NumberOfGears" class="form-control" />
+                    <span asp-validation-for="NumberOfGears" class="text-danger"></span>
+                </div>
+                
+                <button id="update-bicycle-button" type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Picture" style="width: 100%;"></label>
+                @if (Model.Picture == null)
+                {
+                    <img id="bicyclePicture" style="width:350px;height:350px; object-fit:cover" src="">
+                }
+                else
+                {
+                    <img id="bicyclePicture" style="width:350px;height:350px; object-fit:cover" src="data:image/*;base64,@(Convert.ToBase64String(Model.Picture))">
+                }
+                <input type="file"
+                       accept=".png,.jpg,.jpeg,.gif,.tif"
+                       asp-for="Picture"
+                       class="form-control"
+                       style="border:0px!important;padding: 0px;padding-top: 10px;padding-bottom: 30px;"
+                       onchange="document.getElementById('bicyclePicture').src = window.URL.createObjectURL(this.files[0])" />
+                <button id="remove-bicycle-picture" onclick="$(#bicyclePicture).attr('src', " ")" class="btn btn-danger">Fjern billede</button>
+                <span asp-validation-for="Picture" class="text-danger"></span>
+            </div>
+        </div>
+    </form>
+</div>

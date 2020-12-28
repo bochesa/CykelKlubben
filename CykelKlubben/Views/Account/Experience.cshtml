@@ -1,0 +1,42 @@
+﻿@model List<Experience>
+<div class="container">
+    <h1 class="display-4">Oplevelser</h1>
+        <h2>Upload dine oplevelser her...</h2>
+         <div class="row">
+                <div class="col-md-6">
+                    @if (Model.Count==0)
+                    {
+                        <div>
+                            <p>Du har ikke nogen oplevelser, opret en her!</p>
+                            <a class="btn btn-primary" asp-action="CreateExperience" asp-controller="Account">Ny Oplevelse</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row">
+                            @foreach (var item in Model)
+                        {
+                                <div class="col-md-3">
+                                    <a class="btn btn-secondary"
+                                       asp-action="EditExperience"
+                                       asp-controller="Account"
+                                       asp-route-id="@item.Id">
+                                        @item.Name
+                                        @*<img src="/Images/upload.jpg" class="img-thumbnail">*@
+                                        @*  This does note work!
+                                            <img src="data:image/*;base64,@(Convert.ToBase64String(item.ExperiencePictures.FirstOrDefault(x=>x.ExperienceId==item.Id).Image))" class="img-thumbnail">*@
+                                    </a>
+                                </div>
+                        }
+                        
+                        </div>
+                        <div class="row">
+                            <span style="text-align:right">
+                            <a class="btn btn-primary"  asp-action="CreateExperience" asp-controller="Account">Ny Oplevelse</a>
+
+                            </span>
+                        </div>
+                    }
+                </div>
+         </div>
+</div>

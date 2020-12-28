@@ -1,0 +1,41 @@
+﻿@model CykelKlubben.Models.ContactMe
+<article id="contact" class="container">
+    <header>
+        <h1 class="display-4">Skriv til os</h1>
+        <p>Skriv her hvis du har spørgsmål, eller ønsker at blive medlem</p>
+    </header>
+    @if (TempData["Feedback"] != null)
+    {
+        <div class="alert alert-info" id="Feedback">@TempData["Feedback"]</div>
+    }
+
+    <form asp-action="Contact" asp-controller="Home" method="post">
+        <div class="form form-group">
+            <div class="row">
+                <div class="col-6 col-12-medium">
+                    <input asp-for="Name" placeholder="Navn" class="form-control" />
+                    <span class="alert-warning" asp-validation-for="Name"></span>
+                </div>
+                <div class="col-6 col-12-medium">
+                    <input asp-for="Email" placeholder="Email" class="form-control" />
+                    <span asp-validation-for="Email"></span>
+                </div>
+                <div class="col-12">
+                    <input asp-for="Subject" placeholder="Emne" class="form-control" />
+                    <span asp-validation-for="Subject"></span>
+                </div>
+                <div class="col-12">
+                    <textarea asp-for="Message" class="form-control" placeholder="Din besked" rows="6"></textarea>
+                    <span asp-validation-for="Message"></span>
+                </div>
+                <div class="col-12">
+                    <input type="submit" value="Send Message" />
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div>
+
+    </div>
+</article>
