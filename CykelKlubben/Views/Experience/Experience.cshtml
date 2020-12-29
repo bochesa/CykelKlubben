@@ -8,7 +8,7 @@
                     {
                         <div>
                             <p>Du har ikke nogen oplevelser, opret en her!</p>
-                            <a class="btn btn-primary" asp-action="CreateExperience" asp-controller="Account">Ny Oplevelse</a>
+                            <a class="btn btn-primary" asp-action="CreateExperience" asp-controller="Experience">Ny Oplevelse</a>
                         </div>
                     }
                     else
@@ -19,7 +19,7 @@
                                 <div class="col-md-3">
                                     <a class="btn btn-secondary"
                                        asp-action="EditExperience"
-                                       asp-controller="Account"
+                                       asp-controller="Experience"
                                        asp-route-id="@item.Id">
                                         @item.Name
                                         @*<img src="/Images/upload.jpg" class="img-thumbnail">*@
@@ -32,7 +32,7 @@
                         </div>
                         <div class="row">
                             <span style="text-align:right">
-                            <a class="btn btn-primary"  asp-action="CreateExperience" asp-controller="Account">Ny Oplevelse</a>
+                            <a class="btn btn-primary"  asp-action="CreateExperience" asp-controller="Experience">Ny Oplevelse</a>
 
                             </span>
                         </div>

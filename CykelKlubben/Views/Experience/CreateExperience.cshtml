@@ -9,7 +9,7 @@
                     <input asp-for="Experience.Name" class="form-control" />
                     <span asp-validation-for="Experience.Name" class="text-danger"></span>
                 </div>
-                <button class="btn btn-primary" type="submit" asp-action="CreateExperience" asp-controller="Account">Gem</button>
+                <button class="btn btn-primary" type="submit" asp-action="CreateExperience" asp-controller="Experience">Gem</button>
                 <div class="form-group">
                     @if (Model != null)
                     {

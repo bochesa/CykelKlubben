@@ -1,4 +1,5 @@
 ﻿using CykelKlubben.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace CykelKlubben.Controllers
 {
+    [Authorize]
     public class BicycleController : Controller
     {
         private readonly DataContext context;
