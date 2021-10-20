@@ -1,8 +1,6 @@
 # CykelKlubben
 Practice project for Local developer house
 
-See it live: https://cykelklubben.bochesa.dk
-
 This project is meant as a practice project for MVC Asp.Net. The project is a club site for a bicycle club in danish, where the members can see each others equipments and Bicycle adventures.
 
 The project features:
